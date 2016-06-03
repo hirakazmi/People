@@ -1,9 +1,7 @@
 
-
-
 class People
 
-  def intitialize(name)
+  def initialize(name)
     @name = name
   end
 
@@ -11,11 +9,12 @@ class People
     "Hi, my name is #{@name}"
   end
 
-end
+  end
+
 
 class Instructor < People
 
-  def teach < people
+  def teach
     "Everything in Ruby is an Object"
   end
 
@@ -31,6 +30,9 @@ end
 
 chris = Instructor.new("Chris")
 puts chris.greeting
+puts chris.teach
 
 cristina = Student.new("Cristina")
-cristina.greeting
+puts cristina.greeting
+puts cristina.learn
+cristina.teach #this wont work because the teach is only in the Instructor class.

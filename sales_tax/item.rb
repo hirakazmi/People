@@ -1,7 +1,7 @@
 class Shopping_cart
 
   def initialize
-    @item = []
+    @items = []
   end
 
   def add(item)
@@ -21,5 +21,10 @@ end
 
 book = Item.new("book", 12.49, false, false )
 music_cd = Item.new("music_cd", 14.99, true, false)
+perfume = Item.new("perfume", 47.50, true, true)
+
+
 shopping_cart1 =  Shopping_cart.new
-shopping_cart1.add(books)
+
+shopping_cart1.add(music_cd)
+shopping_cart1.add(book)

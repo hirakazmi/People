@@ -29,5 +29,8 @@ class Student < People
 
 end
 
-chris = People.new("Chris")
+chris = Instructor.new("Chris")
 puts chris.greeting
+
+cristina = Student.new("Cristina")
+cristina.greeting

@@ -19,13 +19,13 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
   end
 
   def turn(command)
-    if (direction = "N" && command == "L" || direction == "S" && command == "R")
+    if (direction = "N" && command == "L") || (direction == "S" && command == "R")
       @direction == "W"
-    elsif (direction = "E" && command == "L" || direction == "W" && command == "R")
+    elsif (direction = "E" && command == "L") || (direction == "W" && command == "R")
       @direction == "N"
-    elsif (direction = "S" && command == "L" || direction == "N" && command == "R")
+    elsif (direction = "S" && command == "L") || (direction == "N" && command == "R")
       @direction == "E"
-    else (direction = "W" && command == "L" || direction == "E" && command == "R")
+    else (direction = "W" && command == "L") || (direction == "E" && command == "R")
       @direction == "S"
   end
 

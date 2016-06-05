@@ -1,7 +1,7 @@
 
 class Item
 
-attr_accessor :calculated_tax, :sales_tax, :import_tax, :shelf_price
+attr_accessor :sales_tax, :import_tax, :shelf_price
 attr_reader :quantity, :name
 
   def initialize(quantity, name, shelf_price, sales_tax, import_tax)
@@ -23,7 +23,7 @@ attr_reader :quantity, :name
     elsif @sales_tax == false && @import_tax == true
       @shelf_price + import_tax
     elsif @sales_tax == false && @import_tax == false
-      @shelf_price
+      @shelf_price.round
 
     end
   end

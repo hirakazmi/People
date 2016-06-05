@@ -8,8 +8,8 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
     @direction = direction
   end
 
-  def read_instruction(instructions)
-    instructions.each do |order|
+  def read_instruction(move_instructions)
+    move_instructions.each do |order|
       if order == "L" || order == "R"
         turn(order)
       else order == "M"
@@ -27,6 +27,7 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
       @direction == "E"
     else (direction = "W" && command == "L") || (direction == "E" && command == "R")
       @direction == "S"
+    end
   end
 
   def move
@@ -40,4 +41,9 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
       @x_coordinate -= 1
     end
   end
+
+  def status
+    "the rover is at #{y_coordinate}, #{x_coordinate}, facing #{direction}"
+  end
+
 end

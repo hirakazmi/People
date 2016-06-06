@@ -1,6 +1,6 @@
 class Rover
 
-attr_accessor :direction, :y_coordinate, :x_coordinate
+attr_accessor :direction, :y_coordinate, :x_coordinate, :instruction
 
   def initialize(x_coordinate, y_coordinate, direction)
     @x_coordinate = x_coordinate
@@ -8,12 +8,12 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
     @direction = direction
   end
 
-  def read_instruction(move_instructions)
-    move_instructions.each do |order|
-      if order == "L" || order == "R"
-        turn(order)
-      else order == "M"
-        move
+  def read_instruction(instruction)
+    instruction.each do |order|
+      case order
+      when "L" then turn
+      when "R" then turn
+      when "M" then move
       end
     end
   end
@@ -43,7 +43,7 @@ attr_accessor :direction, :y_coordinate, :x_coordinate
   end
 
   def status
-    "the rover is at #{y_coordinate}, #{x_coordinate}, facing #{direction}"
+    "#{@y_coordinate}, #{@x_coordinate}, #{@direction}"
   end
 
 end

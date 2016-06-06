@@ -1,21 +1,37 @@
 require_relative 'mars'
 
-puts "What is the size of the plateau?"
-plateau_size = gets.chomp.split
+class MissionControl
 
-puts "What is rovers start position and where is it facing?"
-start_position_and_direction = gets.chomp.split
+  attr_accessor :x_position, :y_position, :direction, :position, :move_instructions
 
-puts "What are rovers move instructions?"
-move_instructions = gets.chomp.split("")
+  def input
+    puts "What is the size of the plateau?"
+    @plateau_size = gets.chomp.gsub("", "").split
 
-
-
-
-
-p plateau_size[0].to_i, plateau_size[1].to_i
-start_position_and_direction = start_position_and_direction[0].to_i, start_position_and_direction[1].to_i
+    puts "What is rovers start position and where is it facing?"
+    @start_position = gets.chomp.split("")
+    @x_position = @start_position[0].to_i
+    @y_position = @start_position[1].to_i
+    @direction = @start_position[2]
 
 
-rover1 = Rover.new(start_position_and_direction[0], start_position_and_direction[1], start_position_and_direction[2])
-p rover1.read_instruction(*move_instructions)
+    puts "What are rovers move instructions?"
+    @move_instructions = gets.chomp.gsub("", "").split("")
+
+    rover_1
+
+  end
+
+  def rover_1
+
+    puts @plateau_size
+    @rover1 = Rover.new(@x_position, @y_position, @direction)
+    @rover1.read_instruction(@move_instructions)
+    puts @rover1.status
+
+  end
+
+end
+
+# puts plateau_size
+MissionControl.new.input

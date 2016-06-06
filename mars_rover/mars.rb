@@ -1,6 +1,6 @@
 class Rover
 
-attr_accessor :direction, :y_coordinate, :x_coordinate, :instruction
+  attr_accessor :direction, :y_coordinate, :x_coordinate, :instruction
 
   def initialize(x_coordinate, y_coordinate, direction)
     @x_coordinate = x_coordinate
@@ -11,8 +11,8 @@ attr_accessor :direction, :y_coordinate, :x_coordinate, :instruction
   def read_instruction(instruction)
     instruction.each do |order|
       case order
-      when "L" then turn
-      when "R" then turn
+      when "L" then turn(order)
+      when "R" then turn(order)
       when "M" then move
       end
     end

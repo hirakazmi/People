@@ -19,11 +19,11 @@ attr_reader :quantity, :name
     if @sales_tax == true && @import_tax == true
       @shelf_price * (sales_tax + import_tax)
     elsif @sales_tax == true && @import_tax == false
-      @shelf_price + sales_tax
+      @shelf_price * sales_tax
     elsif @sales_tax == false && @import_tax == true
-      @shelf_price + import_tax
+      @shelf_price * import_tax
     elsif @sales_tax == false && @import_tax == false
-      @shelf_price.round
+      @shelf_price
 
     end
   end
